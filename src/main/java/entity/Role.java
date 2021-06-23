@@ -15,6 +15,9 @@ public class Role {
     @Value("role_note_1")
     private  String note;
 
+    public Role(){
+    }
+
     public Role(Long id, String roleName, String note){
         this.id = id;
         this.roleName = roleName;
