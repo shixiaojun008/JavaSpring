@@ -1,5 +1,6 @@
 package test;
 
+import mapper.RoleMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,13 +13,17 @@ public class TestSqlSessionTpt {
 
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-cfg.xml");
 
-        SqlSessionTemplate sqlSessionTemplate = ctx.getBean(SqlSessionTemplate.class);
+        //SqlSessionTemplate sqlSessionTemplate = ctx.getBean(SqlSessionTemplate.class);
+
+        RoleMapper roleMapper = ctx.getBean(RoleMapper.class);
 
         Role role = new Role();
         role.setRoleName("role_name_sqlSessionTemplate");
         role.setNote("role_note_sqlSessionTemplate");
 
-        sqlSessionTemplate.insert("mapper.RoleMapper.insertRole", role);
+        roleMapper.insertRole(role);
+
+        //sqlSessionTemplate.insert("mapper.RoleMapper.insertRole", role);
 
 //        Long id = role.getId();
 //
